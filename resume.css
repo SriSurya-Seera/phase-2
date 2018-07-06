@@ -1,0 +1,16 @@
+.main{
+  background:gray;
+  width:100%;
+  display: flex;
+}
+.left{
+  background:white;
+  width:30%;
+}
+.right{
+  background:yellow;
+  width:20%;
+}
+@media query only screen and (min-device-width:450px) and (max-device-width:780px){
+
+}
