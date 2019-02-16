@@ -1,0 +1,90 @@
+/*header section for index.html page*/
+header{
+  dispaly:block;
+  width: 95%;
+  background-color:blue;
+  text-align: center;
+  margin: 1% auto;
+  font-size: 50px;
+  color:#fff;
+
+}
+.img1{
+  length:100px;
+  width:100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.main{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 2px solid #33D1FF;
+}
+.ca{
+  border: 2px solid #33D1FF;
+  width: 90%;
+  margin: 2%;
+  padding: 2%;
+}
+.s1{
+  width: 40%;
+  border: 2px solid #33D1FF;
+  margin: 2%;
+  padding: 2%;
+}
+select,input{
+  width: 85%;
+  margin:1%;
+}
+button{
+  width: 100%;
+}
+.parent{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  border:2px solid green;
+
+}
+.child{
+  width: 20%;
+  border:2px solid green;
+  padding:1%;
+  margin:auto;
+}
+img{
+  display:block;
+  width:50px;
+  margin:auto;
+  padding:1%;
+}
+h1,a{
+  text-align: center;
+}
+  /*resume*/
+  .main1{
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap:wrap; */
+    border:2px solid red;
+
+  }
+.left{
+  /* display: block; */
+  width: 25%;
+  margin:1%;
+  padding: 1%;
+  text-align: center;
+  border: 2px solid green;
+}
+.right{
+  width:65%;
+  padding: 1%;
+  margin: 1%;
+  /* text-align:center; */
+  border:2px solid red;
+}

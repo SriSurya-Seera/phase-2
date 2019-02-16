@@ -1,24 +1,65 @@
-function LoadJson(file,callback) {
-    var a=new XMLHttpRequest();
-    a.overrideMineType("application/json");
-    a.open("GET",file,true);
-    a.onereadystateschange=function functionName() {
-      if (a.readstate==4 && a.status=="200") {
-        callback(a.responseText);
-      }
-    }
-    a.send(null);
+//indexedDB
+var request;
+var open;
+var store;
+var result;
+var tx;
+var indexedDB=window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;
+  request=indexedDB.open("mydatabase",1)
+//onerror
+request.onerror=function(e){
+  console.log("error()+e");
 }
-LoadJson("data.json",function(text){
-  JSON.parse(text);
-})
-var a=10;
-for(x in y){
-  var a=10;
-  console.log(a);
+//onupgradeneeded
+request.onupgradeneeded=function(e){
+  result=e.target.result;
+  store=result.createObjectStore("resume",{keyPath:"name",autoIncrement:true});
 }
-console.log(a);
-}
-var right= document.getElementById('right');
-var career=document.createElement('h4');
-career.textContext="Career Object:";
+//onsuccess
+request.onsuccess=function(e) {
+ result = e.target.result;
+  function getdata(callback){
+   tx=result.transaction("resume",IDBTransaction.READ_ONLY);
+   store=tx.objectStore("resume");
+   data=[];
+   tx.oncomplete=function(e){
+     callback(result);
+     console.log(result);
+   }
+   var cursor=store.openCursor();
+   //onerror
+   cursor.onerror=function(e){
+     console.log("error",+e);
+   }
+   //onsuccess
+   cursor.onsuccess=function(e){
+     var dn=e.target.result;
+     if(dn){
+       data.push(dn.value);
+       dn.continue();
+     }
+     }
+   }
+   var parent=document.querySelector(".parent");
+    getdata(function(d){
+     for(var i in data){
+       var child=document.createElement("div");
+       child.classList.add("child");
+       parent.appendChild(child);
+
+       var image=document.createElement("img")
+       image.src="images/1m.svg";
+       image.alt=data[i].name;
+       child.appendChild(image);
+
+       var name=document.createElement("h1");
+       name.textContent=data[i].name;
+       child.appendChild(name);
+
+       var button=document.createElement("a");
+       button.textContent="View Profile";
+       button.href="resume.html?name="+data[i].name;
+       child.appendChild(button);
+     }
+   })
+ }

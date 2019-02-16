@@ -2,15 +2,39 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1.0">
-    <title>RESUME</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>REsume</title>
   </head>
   <body>
-    <div class="" id="card">
-    <div class="card">
-      <a href="resume.html">
-  <img src="images/220px-Vishal_at_CCL_4_Launch_(cropped).jpg" alt="image">
-  <h2>s.srisurya</h2>
-   </body>
+  <header>
+    Resume Build
+  </header>
+  <a href="form.html"><img class="img1" src="images/1m.svg" alt="form">
+  <section class="parent">
+
+  </section>
+  </body>
 </html>
+<!--serviceworker-->
+<script type="text/javascript" src="main.js">
+
+</script>
+<script type="text/javascript">
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register("sw.js")
+  .then(function(register){
+    register.addEventListener('update found',function(){
+      var installingsw=register.installing;
+      console.log("serviceworker is inastalling",installingsw);
+    });
+  })
+.catch(function(e){
+ console.log("error"+e);
+});
+}
+else{
+  console.log("serviceworker is installing",)
+}
+
+</script>
